@@ -5,8 +5,8 @@
 #include <opencv2/highgui.hpp>
 #include <opencv2/xfeatures2d.hpp>
 #include <opencv2/core.hpp>
-#include <opencv2/core/ocl.hpp>
-#include <opencv2/core/utils/logger.hpp>
+
+using namespace cv;
 
 int main() {
 	cv::VideoCapture car("20191119_1241_Cam_1_03_00.mp4");
@@ -24,8 +24,17 @@ int main() {
 		return -1;
 	}
 
-	for(size_t i = 0; car.read(frame) && i < 50; i++) {
-		cv::imwrite(std::string("./frames/frame") + std::to_string(i) + ".jpg", frame);
+
+	size_t count = 0;
+	while(car.read(frame)) {
+		cv::imshow("display", frame);
+
+		if(count < 50) {
+			cv::imwrite(std::string("./frames/frame") + std::to_string(count) + ".jpg", frame);
+			count++;
+		}
+
+		cv::waitKey(1);
 	}
 
 	return 0;
