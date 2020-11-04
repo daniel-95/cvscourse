@@ -24,7 +24,7 @@ void MainWindow::calculate(std::string fileName, std::string dirName, double rho
 
     cv::Mat mFrame, mGrayed, mEdges, mLined;
 
-    std::string logPath = dirName + "/hough_" + std::to_string(rho) + "_" + std::to_string(theta) + ".log";
+    std::string logPath = dirName + "/hough_" + std::to_string(rho) + "_" + std::to_string(theta) + "_" + std::to_string(threshold) + ".log";
     QFile houghLog(logPath.c_str());
 
     if(!houghLog.open(QIODevice::WriteOnly | QIODevice::Text))
@@ -51,7 +51,7 @@ void MainWindow::calculate(std::string fileName, std::string dirName, double rho
         cv::HoughLines(mEdges, houghLines, rho, theta*CV_PI/180, threshold);
         
         // write to a log: frameNumber | numOfLines | rho | theta
-        logger << count << "\t" << houghLines.size() << "\t" << rho << "\t" << theta << "\n";
+        logger << count << "\t" << houghLines.size() << "\t" << rho << "\t" << theta << "\t" << threshold << "\n";
 
         // imshow the lines over the source (coloured image)
         mLined = mFrame.clone();
