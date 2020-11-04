@@ -1,2 +1,4 @@
-*.mp4
 build
+CMakeLists.txt.user
+*.swp
+*.mp4
