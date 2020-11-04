@@ -25,7 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     rhoComboBox->addItems({"15", "5", "1"});
     thetaComboBox->addItems({"10", "5", "1"});
-    thresholdComboBox->addItems({"5", "10", "15"});
+    thresholdComboBox->addItems({"5", "10", "150", "190"});
 
     formLayout->addRow("Rho:", rhoComboBox);
     formLayout->addRow("Theta:", thetaComboBox);

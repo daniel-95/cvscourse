@@ -62,10 +62,10 @@ void MainWindow::calculate(std::string fileName, std::string dirName, double rho
             double x0 = a*r, y0 = b*r;
 
             cv::Point p1, p2;
-            p1.x = cvRound(x0 + 1000*(-b));
-            p1.y = cvRound(y0 + 1000*a);
-            p2.x = cvRound(x0 - 1000*(-b));
-            p2.y = cvRound(y0 - 1000*a);
+            p1.x = cvRound(x0 + 2000*(-b));
+            p1.y = cvRound(y0 + 2000*a);
+            p2.x = cvRound(x0 - 2000*(-b));
+            p2.y = cvRound(y0 - 2000*a);
 
             cv::line(mLined, p1, p2, cv::Scalar(0, 0, 255), 3, cv::LINE_AA);
         }
