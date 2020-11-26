@@ -10,3 +10,5 @@ include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 add_subdirectory(ha1)
 add_subdirectory(ha2)
+add_subdirectory(ha4)
+
