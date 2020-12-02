@@ -75,10 +75,8 @@ void MainWindow::calculate(std::string fileName, std::string dirName, int nFrame
 			}
 
 			// drop the frame to a disk and show it
-			if(1) {
-				std::string maskedFilePath = dirName + "/frame_with_path" + std::to_string(count) + ".jpg";
-				cv::imwrite(maskedFilePath, mOut);
-			}
+			std::string maskedFilePath = dirName + "/frame_with_path" + std::to_string(count) + ".jpg";
+			cv::imwrite(maskedFilePath, mOut);
 
 			cv::imshow("tracked paths", mOut);
 			cv::waitKey(1);
