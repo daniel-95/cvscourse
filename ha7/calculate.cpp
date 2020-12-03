@@ -44,6 +44,7 @@ void MainWindow::calculate(std::string fileName, std::string dirName, int nFrame
 		if(pTracker->empty()) {
 			// detect keypoints using SIFT
 			std::vector<cv::KeyPoint> keypoints = pSIFT->calculateKeyPoints(mFrame);
+			pMask->removeMaskFeatures(keypoints);
 			std::vector<cv::Point2f> vfKeypoints;
 
 			for(auto p : keypoints)
@@ -84,6 +85,7 @@ void MainWindow::calculate(std::string fileName, std::string dirName, int nFrame
 
 			// initialize next path search
 			std::vector<cv::KeyPoint> keypoints = pSIFT->calculateKeyPoints(mFrame);
+			pMask->removeMaskFeatures(keypoints);
 			std::vector<cv::Point2f> vfKeypoints;
 
 			for(auto p : keypoints)
